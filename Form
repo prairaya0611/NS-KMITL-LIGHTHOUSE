@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>แบบประเมินเบื้องต้น - NS KMITL LIGHTHOUSE</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#f5ded4",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#793100",
+                    "surface-container-low": "#fff1eb",
+                    "primary-container": "#f27121",
+                    "surface-tint": "#9f4200",
+                    "on-surface-variant": "#584237",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "surface-container-highest": "#f5ded4",
+                    "inverse-surface": "#3b2d27",
+                    "surface-container": "#ffeae1",
+                    "on-tertiary-container": "#00334d",
+                    "tertiary-fixed": "#cae6ff",
+                    "inverse-on-surface": "#ffede6",
+                    "secondary": "#545f73",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#fbe3da",
+                    "on-tertiary-fixed": "#001e30",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fff8f6",
+                    "outline-variant": "#dfc0b2",
+                    "on-primary": "#ffffff",
+                    "surface": "#fcfcfc",
+                    "surface-dim": "#ecd5cc",
+                    "background": "#fff8f6",
+                    "secondary-container": "#d8e3fb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#8d3d0a",
+                    "tertiary": "#006493",
+                    "primary-fixed-dim": "#ffb692",
+                    "on-secondary-container": "#5a6579",
+                    "primary": "#9f4200",
+                    "outline": "#d1d5db",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#d8e3fb",
+                    "on-surface": "#111c2d",
+                    "on-primary-fixed": "#341100",
+                    "primary-fixed": "#ffdbcb",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "on-secondary-fixed": "#111c2d",
+                    "tertiary-container": "#00a0e8",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#251913",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "inverse-primary": "#ffb692"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "label-md": ["Sarabun", "Inter", "sans-serif"],
+                    "headline-sm": ["Sarabun", "Manrope", "sans-serif"],
+                    "body-sm": ["Sarabun", "Inter", "sans-serif"],
+                    "body-lg": ["Sarabun", "Inter", "sans-serif"],
+                    "label-sm": ["Sarabun", "Inter", "sans-serif"],
+                    "headline-lg": ["Sarabun", "Manrope", "sans-serif"],
+                    "headline-lg-mobile": ["Sarabun", "Manrope", "sans-serif"],
+                    "body-md": ["Sarabun", "Inter", "sans-serif"],
+                    "headline-md": ["Sarabun", "Manrope", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col text-on-surface font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm flex justify-between items-center px-gutter py-4 z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary">NS KMITL LIGHTHOUSE</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center w-full px-margin-mobile md:px-margin-desktop py-12 gap-8">
+<!-- Progress Indicator -->
+<div class="flex items-center gap-4 text-body-sm font-body-sm text-secondary w-full max-w-2xl justify-center mb-4">
+<div class="flex items-center gap-2 text-primary-container font-bold">
+<span class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center text-xs">1</span>
+<span>คัดกรองเบื้องต้น</span>
+</div>
+<div class="w-8 h-px bg-outline-variant"></div>
+<div class="flex items-center gap-2 text-secondary">
+<span class="w-6 h-6 rounded-full border border-outline flex items-center justify-center text-xs">2</span>
+<span>เลือกเวลา</span>
+</div>
+</div>
+<!-- Central Action Card -->
+<div class="w-full max-w-2xl bg-surface rounded-xl shadow-[0px_8px_30px_rgba(0,0,0,0.04)] border border-outline-variant overflow-hidden relative">
+<!-- Accent Strip -->
+<div class="h-1 w-full bg-primary-container absolute top-0 left-0"></div>
+<div class="p-8 flex flex-col items-center text-center gap-6">
+<!-- Icon Highlight -->
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-primary-container mb-2">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">การคัดกรองก่อนรับคำปรึกษา</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                    เพื่อให้ผู้เชี่ยวชาญของเราสามารถให้คำแนะนำที่เหมาะสมและมีประสิทธิภาพที่สุดสำหรับคุณ เราขอรบกวนให้คุณกรอกแบบประเมินเบื้องต้นก่อนทำการจองเวลา
+                </p>
+<!-- Embedded Instruction Box (Glassmorphism inspired light layer) -->
+<div class="w-full bg-surface-bright border border-outline-variant rounded-lg p-5 flex flex-col md:flex-row items-center gap-4 text-left mt-2 shadow-[0px_4px_15px_rgba(0,0,0,0.02)]">
+<div class="w-10 h-10 rounded-full bg-[#fff1e7] flex-shrink-0 flex items-center justify-center text-primary-container hidden md:flex">
+<span class="material-symbols-outlined">assignment</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">ข้อมูลที่จำเป็น</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            โปรดกรอกแบบสอบถามเบื้องต้นของเรา ข้อมูลของคุณจะถูกเก็บเป็นความลับ (ลิงก์จะเปิดในหน้าต่างใหม่)
+                        </p>
+</div>
+<a class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded border border-primary-container text-primary-container hover:bg-surface-container transition-colors font-label-md text-label-md w-full md:w-auto flex-shrink-0" href="https://forms.google.com" target="_blank">
+<span>เปิดแบบฟอร์ม</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="w-full h-px bg-outline-variant my-2"></div>
+<!-- Primary Action -->
+<div class="w-full flex flex-col items-center gap-3">
+<p class="font-body-sm text-body-sm text-secondary italic">เมื่อคุณส่งแบบฟอร์มเรียบร้อยแล้ว คุณสามารถดำเนินการต่อได้</p>
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-primary-container text-white hover:bg-surface-tint transition-all active:scale-95 duration-150 font-label-md text-label-md w-full md:w-auto shadow-md hover:shadow-lg" href="booking.html">
+<span>ถัดไป: เลือกเวลา</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-margin-desktop py-base max-w-container-max mx-auto transition-all duration-200">
+<span class="font-label-md text-label-md font-bold text-secondary mb-4 md:mb-0 text-center md:text-left">
+            © 2024 คณะพยาบาลศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง สงวนสิทธิ์ทุกประการ
+        </span>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary underline transition-colors" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary underline transition-colors" href="#">ข้อกำหนดการให้บริการ</a>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary underline transition-colors" href="#">ติดต่อคณะฯ</a>
+</div>
+</footer>
+</body></html>
