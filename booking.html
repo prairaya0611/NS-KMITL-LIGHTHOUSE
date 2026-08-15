@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>เลือกวันและเวลา - NS KMITL LIGHTHOUSE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#f5ded4",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#793100",
+                      "surface-container-low": "#fff1eb",
+                      "primary-container": "#f27121",
+                      "surface-tint": "#9f4200",
+                      "on-surface-variant": "#584237",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "surface-container-highest": "#f5ded4",
+                      "inverse-surface": "#3b2d27",
+                      "surface-container": "#ffeae1",
+                      "on-tertiary-container": "#00334d",
+                      "tertiary-fixed": "#cae6ff",
+                      "inverse-on-surface": "#ffede6",
+                      "secondary": "#545f73",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#fbe3da",
+                      "on-tertiary-fixed": "#001e30",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fff8f6",
+                      "outline-variant": "#dfc0b2",
+                      "on-primary": "#ffffff",
+                      "surface": "#fcfcfc",
+                      "surface-dim": "#ecd5cc",
+                      "background": "#fff8f6",
+                      "secondary-container": "#d8e3fb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#8d3d0a",
+                      "tertiary": "#006493",
+                      "primary-fixed-dim": "#ffb692",
+                      "on-secondary-container": "#5a6579",
+                      "primary": "#9f4200",
+                      "outline": "#d1d5db",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#d8e3fb",
+                      "on-surface": "#111c2d",
+                      "on-primary-fixed": "#341100",
+                      "primary-fixed": "#ffdbcb",
+                      "secondary-fixed-dim": "#bcc7de",
+                      "on-secondary-fixed": "#111c2d",
+                      "tertiary-container": "#00a0e8",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#251913",
+                      "on-secondary-fixed-variant": "#3c475a",
+                      "inverse-primary": "#ffb692"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "48px",
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "headline-sm": ["Manrope"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Scrollbar for time slots */
+        .time-slots-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .time-slots-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .time-slots-container::-webkit-scrollbar-thumb {
+            background-color: #dfc0b2;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm w-full top-0 sticky z-50">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<a aria-label="หน้าหลัก" class="flex items-center gap-3 group active:scale-95 duration-150 transition-transform" href="#">
+<!-- Replace with actual logo if available, using placeholder for now -->
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, modern logo for 'KMITL Nursing'. The logo features a minimalist stylized medical cross integrated with an open book, rendered in a crisp, vibrant orange against a pure white background. The style is flat, corporate, and highly professional, suitable for a light-mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_9_NG6HzJk82_MV4Jr8hxvn37ZcRbRuLkH818SMWi7c5N2cFDG2XJpZfSh9BLijCvOIAshBUZrwwS4MR1M66MYludDGbuDnAlG-5a4y3LIrngyEtqpMuFA7q8JtNnxlDjlnvz12bY-bgRsjl4OYkhi4cuCp_Ro6CHNcp3jFCTWgU5OFNl7CFNaqpLeMuzHW-UK5zV4UiLTMTa4t-r9NM8ymSZ1rQa38-rIvh3zp73FrO_JgDMD26D"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight group-hover:opacity-80 transition-opacity">NS KMITL LIGHTHOUSE</h1>
+</a>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<!-- Top nav typically suppressed on transactional screens, but keeping a minimal back button -->
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md py-2 px-4 rounded-lg hover:bg-surface-container-high active:scale-95 duration-150" href="javascript:history.back()">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                    กลับ
+                 </a>
+</nav>
+<button aria-label="เมนู" class="md:hidden p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex items-center gap-4">
+<button aria-label="โปรไฟล์" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined filled text-primary dark:text-primary-fixed text-[28px]">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content (Transactional) -->
+<main class="flex-grow flex flex-col items-center justify-center py-12 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="w-full max-w-4xl bg-surface-container-lowest rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.04)] border border-outline-variant overflow-hidden relative">
+<!-- Top Accent Strip -->
+<div class="h-1 w-full bg-primary-container absolute top-0 left-0"></div>
+<div class="p-6 md:p-10">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">นัดหมายรับคำปรึกษา</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">เลือกวันและเวลาที่คุณสะดวกเพื่อรับการปรึกษากับคณะพยาบาลศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+<!-- Calendar Section -->
+<div class="flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">ตุลาคม 2567</h3>
+<div class="flex gap-2">
+<button aria-label="เดือนก่อนหน้า" class="p-2 rounded-full border border-outline hover:border-primary hover:text-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button aria-label="เดือนถัดไป" class="p-2 rounded-full border border-outline hover:border-primary hover:text-primary transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Days of Week -->
+<div class="grid grid-cols-7 gap-1 mb-2 text-center font-label-sm text-label-sm text-secondary">
+<div>อา</div><div>จ</div><div>อ</div><div>พ</div><div>พฤ</div><div>ศ</div><div>ส</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-1 md:gap-2">
+<!-- Empty slots -->
+<div class="aspect-square"></div>
+<div class="aspect-square"></div>
+<!-- Days -->
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">1</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">2</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">3</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">4</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">5</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">6</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">7</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">8</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">9</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">10</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">11</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">12</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-30" disabled="">13</button>
+<!-- Selected Day -->
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm bg-primary-container text-on-primary font-semibold shadow-md ring-2 ring-primary-container ring-offset-2 ring-offset-surface-container-lowest transition-all">14</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">15</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">16</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">17</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">18</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">19</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">20</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">21</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">22</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">23</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">24</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">25</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">26</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">27</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">28</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">29</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">30</button>
+<button class="aspect-square flex items-center justify-center rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors">31</button>
+</div>
+<div class="mt-6 flex items-center gap-4 font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full bg-primary-container"></div> เลือกแล้ว</div>
+<div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full bg-surface-container-high border border-outline-variant"></div> ว่าง</div>
+<div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full bg-surface-variant border border-transparent opacity-30"></div> ไม่ว่าง</div>
+</div>
+</div>
+<!-- Time Slots Section -->
+<div class="flex flex-col h-full">
+<div class="mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">เวลาที่สามารถนัดหมายได้</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">วันจันทร์ที่ 14 ตุลาคม 2567</p>
+</div>
+<div class="flex-grow bg-surface-bright rounded-xl border border-outline-variant p-2 overflow-hidden flex flex-col min-h-[300px]">
+<div class="time-slots-container overflow-y-auto pr-2 flex flex-col gap-2 h-full max-h-[320px]">
+<!-- Morning -->
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider py-2 pl-2 sticky top-0 bg-surface-bright/90 backdrop-blur-sm z-10">ช่วงเช้า</div>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">09:00 AM</button>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">09:30 AM</button>
+<!-- Selected Slot -->
+<button class="w-full py-3 px-4 rounded-lg border-2 border-primary-container text-center font-label-md text-label-md text-primary-container bg-surface-container-low transition-all relative overflow-hidden group">
+<span class="relative z-10">10:00 AM</span>
+<div class="absolute inset-0 bg-primary-container/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+</button>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">10:30 AM</button>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">11:00 AM</button>
+<!-- Afternoon -->
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider py-2 pl-2 sticky top-0 bg-surface-bright/90 backdrop-blur-sm z-10 mt-2">ช่วงบ่าย</div>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">01:00 PM</button>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest opacity-50 cursor-not-allowed" disabled="">01:30 PM</button>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">02:00 PM</button>
+<button class="w-full py-3 px-4 rounded-lg border border-outline-variant text-center font-label-md text-label-md text-on-surface hover:border-primary hover:text-primary transition-all bg-surface-container-lowest">03:00 PM</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-10 pt-6 border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-6 bg-surface-container-lowest rounded-b-2xl">
+<div class="flex items-start gap-3 w-full md:w-auto">
+<span class="material-symbols-outlined text-secondary mt-0.5">info</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">เขตเวลา: <span class="font-medium text-on-surface">เวลาอินโดจีน (กรุงเทพมหานคร)</span></p>
+<p class="font-label-sm text-label-sm text-secondary mt-1">ระบบจะนำคุณไปยัง MS Bookings เพื่อยืนยันการนัดหมาย</p>
+</div>
+</div>
+<a class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-primary-container text-on-primary font-label-md text-label-md py-3 px-8 rounded-lg hover:shadow-[0px_12px_40px_rgba(242,113,33,0.3)] hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container" href="https://outlook.office.com/book/NSKMITLLIGHTHOUSE@kmitl.ac.th/" rel="noopener noreferrer" target="_blank">
+                        ยืนยันการนัดหมาย
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-lowest border-t border-outline-variant w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-base w-full max-w-container-max mx-auto transition-all duration-200">
+<div class="text-secondary dark:text-secondary-fixed-dim font-body-sm text-body-sm text-center md:text-left mb-4 md:mb-0">
+                © 2567 คณะพยาบาลศาสตร์ สจล. สงวนลิขสิทธิ์
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-all duration-200" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-all duration-200" href="#">ข้อตกลงการใช้งาน</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-all duration-200" href="#">ติดต่อคณะ</a>
+</div>
+</div>
+</footer>
+</body></html>
