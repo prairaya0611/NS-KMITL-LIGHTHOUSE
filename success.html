@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="light" lang="th"><head>
+<!DOCTYPE html><html class="light" lang="th" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>ยืนยันการจอง - NS KMITL LIGHTHOUSE</title>
@@ -127,26 +127,66 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
                 ขอบคุณสำหรับการติดต่อของคุณ เราได้รับรายละเอียดการจองของคุณเรียบร้อยแล้ว
             </p>
-<div class="bg-surface-bright rounded-lg p-6 mb-10 border border-outline-variant/30 inline-block text-left w-full max-w-sm mx-auto">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">mail</span>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">ขั้นตอนต่อไป</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                            โปรดตรวจสอบกล่องจดหมายอีเมลของคุณ (รวมถึงโฟลเดอร์จดหมายขยะ) สำหรับลิงก์ยืนยันและคำแนะนำเพิ่มเติมเกี่ยวกับการนัดหมายของคุณ
-                        </p>
+<div class="w-full max-w-md mx-auto mb-8 text-left">
+  <!-- Urgent Attention Banner / Badge -->
+  <div class="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#f0fdf4] via-[#f0fdf4] to-white border-2 border-[#06C755] shadow-xl p-5 md:p-6 mb-6">
+    <div class="absolute -top-1 -right-1 flex h-6 w-6 pointer-events-none">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#06C755] opacity-50"></span>
+    </div>
+    
+    <div class="flex items-center gap-2 mb-3 bg-[#e8fbf0] text-[#04883b] px-3 py-1 rounded-full w-fit border border-[#06C755]/30">
+      <span class="material-symbols-outlined text-[18px] animate-bounce">warning</span>
+      <span class="text-xs font-bold tracking-wide uppercase">⚠️ สำคัญมาก! ขั้นตอนสุดท้ายที่ห้ามข้าม</span>
+    </div>
+
+    <h2 class="text-lg md:text-xl font-bold text-gray-900 leading-snug mb-2">
+      กรุณา Add LINE เพื่อยืนยันคิวและรับนัดหมาย
+    </h2>
+    <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+      หากไม่เพิ่มเพื่อนใน LINE ระบบจะไม่สามารถส่งเอกสารยืนยันและลิงก์เข้าปรึกษาให้คุณได้ เจ้าหน้าที่จะส่งข้อมูลยืนยันให้ผ่านทางนี้
+    </p>
+
+    <!-- Main Big Primary LINE Button -->
+    <a href="https://line.me/R/ti/p/@455vpwve" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-center gap-3 w-full py-4 px-6 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center mb-4">
+      <span class="text-xl">👉</span>
+      <span class="">แตะที่นี่เพื่อเพิ่มเพื่อน LINE ทันที</span>
+      <span class="material-symbols-outlined text-[24px] transition-transform group-hover:translate-x-1">open_in_new</span>
+    </a>
+
+    <!-- ID Box & Copy Notice -->
+    <div class="bg-white rounded-xl p-3 border border-gray-200 flex items-center justify-between gap-2 shadow-sm">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[#06C755] text-[20px]">chat</span>
+        <span class="text-xs text-gray-500 font-medium">LINE Official ID:</span>
+        <span class="font-mono font-bold text-sm md:text-base text-gray-800 bg-gray-100 px-2 py-0.5 rounded select-all">@455vpwve</span>
+      </div>
+      <a href="https://line.me/R/ti/p/@455vpwve" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#06C755] hover:text-[#04883b] underline whitespace-nowrap">แอดด้วย ID</a>
+    </div>
+  </div>
+
+  <!-- Subtle Email Notice -->
+  <div class="flex items-start gap-3 px-3 py-2 text-xs text-gray-500 bg-gray-50/80 rounded-lg border border-gray-200/60">
+    <span class="material-symbols-outlined text-gray-400 text-[18px] mt-0.5">mark_email_read</span>
+    <p class="">ระบบได้ส่งสำเนาการจองไปที่อีเมลของคุณแล้ว (โปรดตรวจสอบในกล่องจดหมายขยะหรือเมลสแปม)</p>
+  </div>
 </div>
+<div class="w-full flex flex-col items-center gap-2">
+  <p class="text-xs text-amber-700 bg-amber-50 px-3 py-1 rounded-md border border-amber-200 flex items-center gap-1">
+    <span class="material-symbols-outlined text-[16px]">info</span>
+    กรุณาแอด LINE ให้เรียบร้อยก่อนออกจากหน้านี้
+  </p>
+  <a class="inline-flex items-center justify-center px-6 py-2.5 bg-transparent hover:bg-gray-100 text-gray-600 rounded-lg font-label-md text-sm border border-gray-300 transition-colors duration-200 w-full md:w-auto" href="index.html">
+    <span class="material-symbols-outlined mr-1 text-[18px]">arrow_back</span>
+    กลับสู่หน้าหลัก
+  </a>
 </div>
-</div>
-<a class="inline-flex items-center justify-center px-8 py-4 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary transition-colors duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-surface-container-lowest w-full md:w-auto" href="index.html">
-                กลับสู่หน้าหลัก
-                <span class="material-symbols-outlined ml-2 text-[20px]">arrow_forward</span>
-</a>
 <div class="mt-12 pt-6 border-t border-outline-variant/30">
 <p class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">© 2569 คณะพยาบาลศาสตร์<br>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
 </div>
 </div>
 </main>
+
+
 
 
 </body></html>
